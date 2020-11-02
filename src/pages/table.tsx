@@ -268,12 +268,12 @@ const Table: React.FC<tableProps> = () => {
             isLoading={insertRowFetch}
             onClick={async () => addRowOnClick()}
             variantColor="teal"
-            marginX={4}
+            marginX={2}
           >
             Add row
           </Button>
           <Button
-            marginX={4}
+            marginX={2}
             width={"50%"}
             type="submit"
             isLoading={insertHeaderFetch}
