@@ -1,0 +1,15 @@
+query TableData {
+  headers {
+    header_id
+    header_name
+  }
+  rows {
+    row_id
+  }
+  values {
+    header_id
+    row_id
+    value
+    value_id
+  }
+}

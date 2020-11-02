@@ -1,0 +1,8 @@
+mutation InsertHeader($header_id: Int!, $header_name: String!) {
+  insert_headers_one(
+    object: { header_id: $header_id, header_name: $header_name }
+  ) {
+    header_id
+    header_name
+  }
+}

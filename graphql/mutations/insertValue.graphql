@@ -1,0 +1,22 @@
+mutation InsertValue(
+  $row_id: Int!
+  $header_id: Int!
+  $value: String!
+  $value_id: Int!
+) {
+  insert_values(
+    objects: {
+      row_id: $row_id
+      header_id: $header_id
+      value: $value
+      value_id: $value_id
+    }
+  ) {
+    returning {
+      header_id
+      row_id
+      value_id
+      value
+    }
+  }
+}

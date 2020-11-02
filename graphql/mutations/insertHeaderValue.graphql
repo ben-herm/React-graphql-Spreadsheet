@@ -1,0 +1,8 @@
+mutation InsertHeaderValue($header_id: Int!, $header_name: String!) {
+  update_headers_by_pk(
+    pk_columns: { header_id: $header_id }
+    _set: { header_name: $header_name }
+  ) {
+    header_id
+  }
+}

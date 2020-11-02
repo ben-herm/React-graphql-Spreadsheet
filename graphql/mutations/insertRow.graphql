@@ -1,0 +1,5 @@
+mutation InsertRow($row_id: Int!) {
+  insert_rows_one(object: { row_id: $row_id }) {
+    row_id
+  }
+}

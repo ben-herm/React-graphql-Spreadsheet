@@ -1,0 +1,5 @@
+mutation UpdateValue($value_id: Int!, $value: String!) {
+  update_values_by_pk(pk_columns: { value_id: 3 }, _set: { value: "test3" }) {
+    value_id
+  }
+}
