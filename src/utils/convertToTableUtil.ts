@@ -38,20 +38,3 @@ export const convertDataToTableValues = (data): Array<[[]]> => {
     return [headers, ...newValues];
   }
 };
-
-// newValues.forEach((val) => {
-//     let new = val.map((obj, index) => {
-//       for (let j = 0; j < data.headers.length; j++) {
-//         return {
-//           row_id: index,
-//           header_id: data.headers[j],
-//           type: "value",
-//           value:
-//             data.values?.includes({ header_id: data.headers[j] }) &&
-//             data.values?.includes({ row_id: index })
-//               ? data.values[j]?.value
-//               : " ",
-//         };
-//       }
-//     });
-//   });

@@ -229,7 +229,6 @@ const Table: React.FC<tableProps> = () => {
         let foundIndex = data.values.findIndex(
           (val) => val.value_id == value.value_id
         );
-        console.log("foundIndex", foundIndex);
         val = {
           row_id: value.row_id,
           header_id: value.header_id,
@@ -239,10 +238,8 @@ const Table: React.FC<tableProps> = () => {
         if (foundIndex == -1) {
           insert_values({ variables: { ...val } });
         } else {
-          console.log("inside", val.value_id);
-          console.log("val.value", val.value);
           update_values_by_pk({
-            variables: { value_id: val.value_id, value: val.value }
+            variables: { value_id: val.value_id, value: val.value },
           });
         }
       }
