@@ -1,8 +1,22 @@
-export const convertDataToTableValues = (data): Array<[[]]> => {
+interface DataProps {
+  headers: Array<{
+    header_id: number;
+    header_name: string;
+  }>;
+  rows: Array<{}>;
+  values: Array<{
+    header_id: number;
+    row_id: number;
+    value: string;
+    value_id?: number;
+  }>;
+}
+
+export const convertDataToTableValues = (data: DataProps): Array<[[]]> => {
   if (data) {
-    let headers = [];
+    let headers: Array<{}> = [];
     let newValues: Array<any> = [];
-    let value;
+    let value: string;
     data.headers.forEach((header) => {
       headers.push({
         header_id: header.header_id,
