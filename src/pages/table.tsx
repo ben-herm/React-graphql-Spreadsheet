@@ -82,10 +82,11 @@ const Table: React.FC<tableProps> = () => {
   //
 
   useEffect(() => {
-    let counter2 = counter;
-    let newCell = cellValue;
-    let newBuffer = storedChangedValues;
-    let userParam: any = { exists: false, value_id: null };
+    let counter2: number = counter;
+    let newCell: CellData = cellValue;
+    let newBuffer: Array<CellData> = storedChangedValues;
+    let userParam: {} = { exists: false, value_id: null };
+
     if (counter !== 1) {
       let found =
         newBuffer.length > 0 &&
@@ -155,7 +156,7 @@ const Table: React.FC<tableProps> = () => {
   }
 
   const handleOnChange = (e, cell) => {
-    let newValue = {
+    let newValue: CellData = {
       row_id: cell.row_id,
       header_id: cell.header_id,
       value: e.target.value,
@@ -206,7 +207,7 @@ const Table: React.FC<tableProps> = () => {
   };
 
   const applyChangesOnClick = async () => {
-    let newStorage = [];
+    let newStorage: Array<CellData> = [];
     storedChangedValues.forEach(async (value) => {
       let val;
       if (value.type == "header") {
