@@ -14,6 +14,7 @@ import {
 import "react-datasheet/lib/react-datasheet.css";
 import { convertDataToTableValues } from "../utils/convertToTableUtil";
 import Sheet from "../components/spreadSheet/Sheet";
+import CustomBtn from "../components/common/CustomBtn";
 
 interface CellData {
   row_id?: number;
@@ -28,11 +29,7 @@ interface tableProps {}
 
 const Table: React.FC<tableProps> = () => {
   const { data, loading, error, fetchMore } = useTableDataQuery();
-  const [
-    insert_headers_one,
-    { loading: insertHeaderFetch },
-  ] = useInsertHeaderMutation();
-  const [insert_rows_one, { loading: insertRowFetch }] = useInsertRowMutation();
+
   const [
     insert_values,
     { loading: insertValueFetch },
@@ -52,7 +49,6 @@ const Table: React.FC<tableProps> = () => {
   >([]);
   const [cellValue, setCellValue] = useState<CellData>({});
   const [counter, setCounter] = useState<number>(1);
-  console.log("tableData", tableData);
   const RangeView = ({ cell, getValue }): React.ReactElement<InputType> => (
     <Input
       type="text"
@@ -73,7 +69,6 @@ const Table: React.FC<tableProps> = () => {
         });
         newArr.push(newD);
       });
-      console.log("newArr", newArr);
       setTableData(newArr);
     }
   }, [data, loading]);
@@ -185,20 +180,6 @@ const Table: React.FC<tableProps> = () => {
     />
   );
 
-  const addRowOnClick = async () => {
-    await insert_rows_one({
-      variables: { row_id: data.rows.length + 1 },
-    });
-    await fetchMore({});
-  };
-
-  const addColumnOnClick = async () => {
-    await insert_headers_one({
-      variables: { header_id: data.headers.length + 1, header_name: "New" },
-    });
-    await fetchMore({});
-  };
-
   const applyChangesOnClick = async () => {
     let newStorage: Array<CellData> = [];
     storedChangedValues.forEach(async (value) => {
@@ -260,26 +241,7 @@ const Table: React.FC<tableProps> = () => {
       </Wrapper>
       <Wrapper variant="small">
         <Flex padding={4} flexDirection={"row"}>
-          <Button
-            width={"50%"}
-            type="submit"
-            isLoading={insertRowFetch}
-            onClick={async () => addRowOnClick()}
-            variantColor="teal"
-            marginX={2}
-          >
-            Add row
-          </Button>
-          <Button
-            marginX={2}
-            width={"50%"}
-            type="submit"
-            isLoading={insertHeaderFetch}
-            onClick={async () => addColumnOnClick()}
-            variantColor="teal"
-          >
-            Add column
-          </Button>
+          <CustomBtn data={data} fetchMore={fetchMore} />
         </Flex>
         <Button
           alignSelf="center"

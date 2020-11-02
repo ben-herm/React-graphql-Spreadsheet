@@ -1,4 +1,4 @@
-interface DataProps {
+export interface DataProps {
   headers: Array<{
     header_id: number;
     header_name: string;
