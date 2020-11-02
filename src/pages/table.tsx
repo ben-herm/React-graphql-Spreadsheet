@@ -85,7 +85,7 @@ const Table: React.FC<tableProps> = () => {
     let counter2: number = counter;
     let newCell: CellData = cellValue;
     let newBuffer: Array<CellData> = storedChangedValues;
-    let userParam: {} = { exists: false, value_id: null };
+    let userParam = { exists: false, value_id: null };
 
     if (counter !== 1) {
       let found =
