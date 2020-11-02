@@ -12,6 +12,16 @@ interface DataProps {
   }>;
 }
 
+function sortHeaders(a, b) {
+  if (a.header_id > b.header_id) {
+    return 1;
+  }
+  if (a.header_id < b.header_id) {
+    return -1;
+  }
+  return 0;
+}
+
 export const convertDataToTableValues = (data: DataProps): Array<[[]]> => {
   if (data) {
     let headers: Array<{}> = [];
@@ -25,6 +35,7 @@ export const convertDataToTableValues = (data: DataProps): Array<[[]]> => {
       });
     });
 
+    headers.sort(sortHeaders);
     for (let i = 0; i < data.rows.length; i++) {
       newValues[i] = [];
     }

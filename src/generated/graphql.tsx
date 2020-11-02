@@ -1536,7 +1536,7 @@ export type InsertValueMutationResult = Apollo.MutationResult<InsertValueMutatio
 export type InsertValueMutationOptions = Apollo.BaseMutationOptions<InsertValueMutation, InsertValueMutationVariables>;
 export const UpdateValueDocument = gql`
     mutation UpdateValue($value_id: Int!, $value: String!) {
-  update_values_by_pk(pk_columns: {value_id: 3}, _set: {value: "test3"}) {
+  update_values_by_pk(pk_columns: {value_id: $value_id}, _set: {value: $value}) {
     value_id
   }
 }
