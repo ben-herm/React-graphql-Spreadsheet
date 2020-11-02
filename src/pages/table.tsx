@@ -285,7 +285,6 @@ const Table: React.FC<tableProps> = () => {
         </Flex>
         <Button
           alignSelf="center"
-          m={4}
           width={"100%"}
           type="submit"
           isLoading={insertValueFetch || insertHeaderValueFetch}
