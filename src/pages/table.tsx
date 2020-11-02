@@ -1,4 +1,4 @@
-import { Flex, Text, Input, Button } from "@chakra-ui/core";
+import { Flex, Input, Button } from "@chakra-ui/core";
 import React, { useEffect, useState } from "react";
 import { InputType } from "zlib";
 import Error from "../components/errors/Error";
@@ -12,7 +12,9 @@ import {
   useUpdateValueMutation,
 } from "../generated/graphql";
 import "react-datasheet/lib/react-datasheet.css";
-import { convertDataToTableValues } from "../utils/convertToTableUtil";
+import {
+  convertDataToTableValues,
+} from "../utils/convertToTableUtil";
 import Sheet from "../components/spreadSheet/Sheet";
 
 interface CellData {
@@ -46,13 +48,13 @@ const Table: React.FC<tableProps> = () => {
     { loading: UpdateValueFetch },
   ] = useUpdateValueMutation();
 
-  const [tableData, setTableData] = useState<Array<any>>([]);
+  const [tableData, setTableData] = useState<Array<Array<CellData>>>([]);
   const [storedChangedValues, setStoredChangedValues] = useState<
     Array<CellData>
   >([]);
   const [cellValue, setCellValue] = useState<CellData>({});
-  const [counter, setCounter] = useState(1);
-
+  const [counter, setCounter] = useState<number>(1);
+  console.log("tableData", tableData);
   const RangeView = ({ cell, getValue }): React.ReactElement<InputType> => (
     <Input
       type="text"
@@ -64,15 +66,16 @@ const Table: React.FC<tableProps> = () => {
 
   useEffect(() => {
     if (data) {
-      let newData = convertDataToTableValues(data);
-      let datess = newData;
-      let newArr = [];
+      let newData: Array<[[]]> = convertDataToTableValues(data);
+      let editedData: Array<Array<{}>> = newData;
+      let newArr: Array<Array<{}>> = [];
       newData.forEach((item, i) => {
-        const newD = datess[i].map((e) => {
+        const newD = editedData[i].map((e) => {
           return { ...e, DataViewer: RangeView, DataEditor: RangeEdit };
         });
         newArr.push(newD);
       });
+      console.log("newArr", newArr);
       setTableData(newArr);
     }
   }, [data, loading]);
