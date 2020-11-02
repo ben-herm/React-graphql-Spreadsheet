@@ -1,6 +1,7 @@
 import { Flex, Text, Input, Button } from "@chakra-ui/core";
 import React, { useEffect, useState } from "react";
 import { InputType } from "zlib";
+import Error from "../components/errors/Error";
 import { Wrapper } from "../components/Wrapper";
 import {
   useInsertHeaderMutation,
@@ -143,17 +144,6 @@ const Table: React.FC<tableProps> = () => {
     }
   }, [cellValue]);
 
-  if (!loading && !data) {
-    return (
-      <Flex align="center" mr={"auto"}>
-        <Text flex={1} mt={4} m="auto">
-          {"The Query has failed"}
-        </Text>
-        <Text>{error?.message}</Text>
-      </Flex>
-    );
-  }
-
   const handleOnChange = (e, cell) => {
     let newValue: CellData = {
       row_id: cell.row_id,
@@ -246,6 +236,10 @@ const Table: React.FC<tableProps> = () => {
     });
     setStoredChangedValues(newStorage);
   };
+
+  if (!loading && !data) {
+    return <Error error={error} />;
+  }
 
   return (
     <>

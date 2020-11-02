@@ -3,7 +3,7 @@ import React from "react";
 import Spreadsheet from "react-spreadsheet";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Error from "../Error";
+import Error from "../errors/Error";
 interface SheetProps {
   data: any;
   loading: boolean;
