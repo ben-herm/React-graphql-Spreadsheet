@@ -12,9 +12,7 @@ import {
   useUpdateValueMutation,
 } from "../generated/graphql";
 import "react-datasheet/lib/react-datasheet.css";
-import {
-  convertDataToTableValues,
-} from "../utils/convertToTableUtil";
+import { convertDataToTableValues } from "../utils/convertToTableUtil";
 import Sheet from "../components/spreadSheet/Sheet";
 
 interface CellData {
@@ -88,7 +86,10 @@ const Table: React.FC<tableProps> = () => {
     let counter2: number = counter;
     let newCell: CellData = cellValue;
     let newBuffer: Array<CellData> = storedChangedValues;
-    let userParam = { exists: false, value_id: null };
+    let userParam: { exists: boolean; value_id: number } = {
+      exists: false,
+      value_id: null,
+    };
 
     if (counter !== 1) {
       let found =
