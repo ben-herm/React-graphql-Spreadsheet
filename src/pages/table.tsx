@@ -1,6 +1,5 @@
-import { Flex, Text, Input, Button, Box } from "@chakra-ui/core";
-import React, { useEffect, useRef, useState } from "react";
-import Spreadsheet from "react-spreadsheet";
+import { Flex, Text, Input, Button } from "@chakra-ui/core";
+import React, { useEffect, useState } from "react";
 import { InputType } from "zlib";
 import { Wrapper } from "../components/Wrapper";
 import {

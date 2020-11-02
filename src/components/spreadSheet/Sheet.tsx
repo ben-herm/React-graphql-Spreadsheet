@@ -1,13 +1,15 @@
 import { Flex, Box, Text } from "@chakra-ui/core";
 import React from "react";
 import Spreadsheet from "react-spreadsheet";
+import Loader from "react-loader-spinner";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Error from "../Error";
 interface SheetProps {
-  data: any
-  loading: boolean
-  tableData: Array<Array<{}>>
-  onChange: Function,
-  error:{message: string}
+  data: any;
+  loading: boolean;
+  tableData: Array<Array<{}>>;
+  onChange: Function;
+  error: { message: string };
 }
 
 const Sheet: React.FC<SheetProps> = ({
@@ -15,13 +17,25 @@ const Sheet: React.FC<SheetProps> = ({
   loading,
   tableData,
   onChange,
-  error
+  error,
 }) => {
   const renderTable = (): React.ReactElement<any> => {
     if (!data && loading && tableData.length == 0) {
       return (
-        <Flex>
-          <Text>loading...</Text>
+        <Flex
+          justifyContent="center"
+          alignItems="center"
+          display={"flex"}
+          m={"auto"}
+          mt={"12%"}
+        >
+          <Loader
+            type="Puff"
+            color="#00BFFF"
+            height={100}
+            width={100}
+            timeout={3000} //3 secs
+          />
         </Flex>
       );
     }
