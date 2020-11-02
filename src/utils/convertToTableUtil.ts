@@ -12,7 +12,10 @@ interface DataProps {
   }>;
 }
 
-function sortHeaders(a, b) {
+function sortHeaders(
+  a: { header_id: number; header_name: string },
+  b: { header_id: number; header_name: string }
+) {
   if (a.header_id > b.header_id) {
     return 1;
   }
