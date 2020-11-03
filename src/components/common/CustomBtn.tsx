@@ -1,13 +1,15 @@
+import { ApolloQueryResult } from "@apollo/client";
 import { Button } from "@chakra-ui/core";
 import React from "react";
 import {
+  TableDataQuery,
   useInsertHeaderMutation,
   useInsertRowMutation,
 } from "../../generated/graphql";
 import { DataProps } from "../../utils/convertToTableUtil";
 
 interface CustomBtnProps {
-  refetch: Function;
+  refetch: () => Promise<ApolloQueryResult<TableDataQuery>>;
   data: DataProps;
 }
 

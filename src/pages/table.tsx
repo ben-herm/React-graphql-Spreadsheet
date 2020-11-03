@@ -4,9 +4,7 @@ import { InputType } from "zlib";
 import Error from "../components/errors/Error";
 import { Wrapper } from "../components/Wrapper";
 import {
-  useInsertHeaderMutation,
   useInsertHeaderValueMutation,
-  useInsertRowMutation,
   useInsertValueMutation,
   useTableDataQuery,
   useUpdateValueMutation,
@@ -28,7 +26,7 @@ interface CellData {
 interface tableProps {}
 
 const Table: React.FC<tableProps> = () => {
-  const { data, loading, error, fetchMore, refetch } = useTableDataQuery();
+  const { data, loading, error, refetch } = useTableDataQuery();
 
   const [
     insert_values,
