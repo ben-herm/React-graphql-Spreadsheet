@@ -28,7 +28,7 @@ interface CellData {
 interface tableProps {}
 
 const Table: React.FC<tableProps> = () => {
-  const { data, loading, error, fetchMore } = useTableDataQuery();
+  const { data, loading, error, fetchMore, refetch } = useTableDataQuery();
 
   const [
     insert_values,
@@ -241,7 +241,7 @@ const Table: React.FC<tableProps> = () => {
       </Wrapper>
       <Wrapper variant="small">
         <Flex padding={4} flexDirection={"row"}>
-          <CustomBtn data={data} fetchMore={fetchMore} />
+          <CustomBtn data={data} refetch={refetch} />
         </Flex>
         <Button
           alignSelf="center"

@@ -7,11 +7,11 @@ import {
 import { DataProps } from "../../utils/convertToTableUtil";
 
 interface CustomBtnProps {
-  fetchMore: Function;
+  refetch: Function;
   data: DataProps;
 }
 
-const CustomBtn: React.FC<CustomBtnProps> = ({ fetchMore, data }) => {
+const CustomBtn: React.FC<CustomBtnProps> = ({ refetch, data }) => {
   const [
     insert_headers_one,
     { loading: insertHeaderFetch },
@@ -21,14 +21,14 @@ const CustomBtn: React.FC<CustomBtnProps> = ({ fetchMore, data }) => {
     await insert_rows_one({
       variables: { row_id: data.rows.length + 1 },
     });
-    await fetchMore({});
+    await refetch();
   };
 
   const addColumnOnClick = async () => {
     await insert_headers_one({
       variables: { header_id: data.headers.length + 1, header_name: "New" },
     });
-    await fetchMore({});
+    await refetch();
   };
   return (
     <>
