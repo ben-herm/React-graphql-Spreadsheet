@@ -1,18 +1,20 @@
 import { TableDataQuery } from "../generated/graphql";
 
-export interface DataProps {
-  headers: Array<{
-    header_id: number;
-    header_name: string;
-  }>;
-  rows: Array<{}>;
-  values: Array<{
-    header_id: number;
-    row_id: number;
-    value: string;
-    value_id?: number;
-  }>;
-}
+// may need it still..
+
+// export interface DataProps {
+//   headers: Array<{
+//     header_id: number;
+//     header_name: string;
+//   }>;
+//   rows: Array<{}>;
+//   values: Array<{
+//     header_id: number;
+//     row_id: number;
+//     value: string;
+//     value_id?: number;
+//   }>;
+// }
 
 function sortHeaders(
   a: { header_id: number; header_name: string },

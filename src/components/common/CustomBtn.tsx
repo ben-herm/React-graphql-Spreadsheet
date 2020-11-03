@@ -6,11 +6,10 @@ import {
   useInsertHeaderMutation,
   useInsertRowMutation,
 } from "../../generated/graphql";
-import { DataProps } from "../../utils/convertToTableUtil";
 
 interface CustomBtnProps {
   refetch: () => Promise<ApolloQueryResult<TableDataQuery>>;
-  data: DataProps;
+  data: TableDataQuery;
 }
 
 const CustomBtn: React.FC<CustomBtnProps> = ({ refetch, data }) => {
