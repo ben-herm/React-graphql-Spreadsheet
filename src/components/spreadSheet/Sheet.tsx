@@ -4,8 +4,9 @@ import Spreadsheet from "react-spreadsheet";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Error from "../errors/Error";
+import { TableDataQuery } from "../../generated/graphql";
 interface SheetProps {
-  data: any;
+  data: TableDataQuery;
   loading: boolean;
   tableData: Array<Array<{}>>;
   onChange: Function;
