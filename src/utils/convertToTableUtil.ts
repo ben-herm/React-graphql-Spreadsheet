@@ -1,3 +1,5 @@
+import { TableDataQuery } from "../generated/graphql";
+
 export interface DataProps {
   headers: Array<{
     header_id: number;
@@ -25,7 +27,7 @@ function sortHeaders(
   return 0;
 }
 
-export const convertDataToTableValues = (data: DataProps): Array<[[]]> => {
+export const convertDataToTableValues = (data: TableDataQuery): Array<[[]]> => {
   if (data) {
     let headers: Array<{}> = [];
     let newValues: Array<any> = [];
