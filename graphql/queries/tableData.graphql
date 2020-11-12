@@ -1,12 +1,12 @@
-query TableData {
-  headers {
+query TableData($table_id: Int!) {
+  headers(where:{table_id:{_eq:$table_id}}) {
     header_id
     header_name
   }
-  rows {
+  rows(where:{table_id:{_eq:$table_id}}) {
     row_id
   }
-  values {
+  values(where:{table_id:{_eq:$table_id}}) {
     header_id
     row_id
     value

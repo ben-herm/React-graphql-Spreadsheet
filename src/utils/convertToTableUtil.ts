@@ -1,21 +1,5 @@
 import { TableDataQuery } from "../generated/graphql";
 
-// may need it still..
-
-// export interface DataProps {
-//   headers: Array<{
-//     header_id: number;
-//     header_name: string;
-//   }>;
-//   rows: Array<{}>;
-//   values: Array<{
-//     header_id: number;
-//     row_id: number;
-//     value: string;
-//     value_id?: number;
-//   }>;
-// }
-
 function sortHeaders(
   a: { header_id: number; header_name: string },
   b: { header_id: number; header_name: string }
@@ -41,7 +25,6 @@ export const convertDataToTableValues = (data: TableDataQuery): Array<[[]]> => {
         type: "header",
       });
     });
-
     headers.sort(sortHeaders);
     for (let i = 0; i < data.rows.length; i++) {
       newValues[i] = [];
@@ -67,6 +50,7 @@ export const convertDataToTableValues = (data: TableDataQuery): Array<[[]]> => {
         });
       }
     });
+ 
     return [headers, ...newValues];
   }
 };

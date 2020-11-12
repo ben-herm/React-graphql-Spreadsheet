@@ -48,6 +48,7 @@ export type Headers = {
   __typename?: 'headers';
   header_id: Scalars['Int'];
   header_name: Scalars['String'];
+  table_id?: Maybe<Scalars['Int']>;
   /** An array relationship */
   values: Array<Values>;
   /** An aggregated array relationship */
@@ -129,11 +130,13 @@ export type Headers_Arr_Rel_Insert_Input = {
 export type Headers_Avg_Fields = {
   __typename?: 'headers_avg_fields';
   header_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "headers" */
 export type Headers_Avg_Order_By = {
   header_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "headers". All fields are combined with a logical 'AND'. */
@@ -143,6 +146,7 @@ export type Headers_Bool_Exp = {
   _or?: Maybe<Array<Maybe<Headers_Bool_Exp>>>;
   header_id?: Maybe<Int_Comparison_Exp>;
   header_name?: Maybe<String_Comparison_Exp>;
+  table_id?: Maybe<Int_Comparison_Exp>;
   values?: Maybe<Values_Bool_Exp>;
 };
 
@@ -155,12 +159,14 @@ export enum Headers_Constraint {
 /** input type for incrementing integer column in table "headers" */
 export type Headers_Inc_Input = {
   header_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
 };
 
 /** input type for inserting data into table "headers" */
 export type Headers_Insert_Input = {
   header_id?: Maybe<Scalars['Int']>;
   header_name?: Maybe<Scalars['String']>;
+  table_id?: Maybe<Scalars['Int']>;
   values?: Maybe<Values_Arr_Rel_Insert_Input>;
 };
 
@@ -169,12 +175,14 @@ export type Headers_Max_Fields = {
   __typename?: 'headers_max_fields';
   header_id?: Maybe<Scalars['Int']>;
   header_name?: Maybe<Scalars['String']>;
+  table_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by max() on columns of table "headers" */
 export type Headers_Max_Order_By = {
   header_id?: Maybe<Order_By>;
   header_name?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate min on columns */
@@ -182,12 +190,14 @@ export type Headers_Min_Fields = {
   __typename?: 'headers_min_fields';
   header_id?: Maybe<Scalars['Int']>;
   header_name?: Maybe<Scalars['String']>;
+  table_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by min() on columns of table "headers" */
 export type Headers_Min_Order_By = {
   header_id?: Maybe<Order_By>;
   header_name?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** response of any mutation on the table "headers" */
@@ -216,6 +226,7 @@ export type Headers_On_Conflict = {
 export type Headers_Order_By = {
   header_id?: Maybe<Order_By>;
   header_name?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   values_aggregate?: Maybe<Values_Aggregate_Order_By>;
 };
 
@@ -229,57 +240,68 @@ export enum Headers_Select_Column {
   /** column name */
   HeaderId = 'header_id',
   /** column name */
-  HeaderName = 'header_name'
+  HeaderName = 'header_name',
+  /** column name */
+  TableId = 'table_id'
 }
 
 /** input type for updating data in table "headers" */
 export type Headers_Set_Input = {
   header_id?: Maybe<Scalars['Int']>;
   header_name?: Maybe<Scalars['String']>;
+  table_id?: Maybe<Scalars['Int']>;
 };
 
 /** aggregate stddev on columns */
 export type Headers_Stddev_Fields = {
   __typename?: 'headers_stddev_fields';
   header_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "headers" */
 export type Headers_Stddev_Order_By = {
   header_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Headers_Stddev_Pop_Fields = {
   __typename?: 'headers_stddev_pop_fields';
   header_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "headers" */
 export type Headers_Stddev_Pop_Order_By = {
   header_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Headers_Stddev_Samp_Fields = {
   __typename?: 'headers_stddev_samp_fields';
   header_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "headers" */
 export type Headers_Stddev_Samp_Order_By = {
   header_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate sum on columns */
 export type Headers_Sum_Fields = {
   __typename?: 'headers_sum_fields';
   header_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by sum() on columns of table "headers" */
 export type Headers_Sum_Order_By = {
   header_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** update columns of table "headers" */
@@ -287,40 +309,48 @@ export enum Headers_Update_Column {
   /** column name */
   HeaderId = 'header_id',
   /** column name */
-  HeaderName = 'header_name'
+  HeaderName = 'header_name',
+  /** column name */
+  TableId = 'table_id'
 }
 
 /** aggregate var_pop on columns */
 export type Headers_Var_Pop_Fields = {
   __typename?: 'headers_var_pop_fields';
   header_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "headers" */
 export type Headers_Var_Pop_Order_By = {
   header_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
 export type Headers_Var_Samp_Fields = {
   __typename?: 'headers_var_samp_fields';
   header_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "headers" */
 export type Headers_Var_Samp_Order_By = {
   header_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
 export type Headers_Variance_Fields = {
   __typename?: 'headers_variance_fields';
   header_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "headers" */
 export type Headers_Variance_Order_By = {
   header_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** mutation root */
@@ -334,6 +364,10 @@ export type Mutation_Root = {
   delete_rows?: Maybe<Rows_Mutation_Response>;
   /** delete single row from the table: "rows" */
   delete_rows_by_pk?: Maybe<Rows>;
+  /** delete data from the table: "tables" */
+  delete_tables?: Maybe<Tables_Mutation_Response>;
+  /** delete single row from the table: "tables" */
+  delete_tables_by_pk?: Maybe<Tables>;
   /** delete data from the table: "values" */
   delete_values?: Maybe<Values_Mutation_Response>;
   /** delete single row from the table: "values" */
@@ -346,6 +380,10 @@ export type Mutation_Root = {
   insert_rows?: Maybe<Rows_Mutation_Response>;
   /** insert a single row into the table: "rows" */
   insert_rows_one?: Maybe<Rows>;
+  /** insert data into the table: "tables" */
+  insert_tables?: Maybe<Tables_Mutation_Response>;
+  /** insert a single row into the table: "tables" */
+  insert_tables_one?: Maybe<Tables>;
   /** insert data into the table: "values" */
   insert_values?: Maybe<Values_Mutation_Response>;
   /** insert a single row into the table: "values" */
@@ -358,6 +396,10 @@ export type Mutation_Root = {
   update_rows?: Maybe<Rows_Mutation_Response>;
   /** update single row of the table: "rows" */
   update_rows_by_pk?: Maybe<Rows>;
+  /** update data of the table: "tables" */
+  update_tables?: Maybe<Tables_Mutation_Response>;
+  /** update single row of the table: "tables" */
+  update_tables_by_pk?: Maybe<Tables>;
   /** update data of the table: "values" */
   update_values?: Maybe<Values_Mutation_Response>;
   /** update single row of the table: "values" */
@@ -386,6 +428,18 @@ export type Mutation_RootDelete_RowsArgs = {
 /** mutation root */
 export type Mutation_RootDelete_Rows_By_PkArgs = {
   row_id: Scalars['Int'];
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_TablesArgs = {
+  where: Tables_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootDelete_Tables_By_PkArgs = {
+  table_id: Scalars['Int'];
 };
 
 
@@ -426,6 +480,20 @@ export type Mutation_RootInsert_RowsArgs = {
 export type Mutation_RootInsert_Rows_OneArgs = {
   object: Rows_Insert_Input;
   on_conflict?: Maybe<Rows_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_TablesArgs = {
+  objects: Array<Tables_Insert_Input>;
+  on_conflict?: Maybe<Tables_On_Conflict>;
+};
+
+
+/** mutation root */
+export type Mutation_RootInsert_Tables_OneArgs = {
+  object: Tables_Insert_Input;
+  on_conflict?: Maybe<Tables_On_Conflict>;
 };
 
 
@@ -476,6 +544,22 @@ export type Mutation_RootUpdate_Rows_By_PkArgs = {
 
 
 /** mutation root */
+export type Mutation_RootUpdate_TablesArgs = {
+  _inc?: Maybe<Tables_Inc_Input>;
+  _set?: Maybe<Tables_Set_Input>;
+  where: Tables_Bool_Exp;
+};
+
+
+/** mutation root */
+export type Mutation_RootUpdate_Tables_By_PkArgs = {
+  _inc?: Maybe<Tables_Inc_Input>;
+  _set?: Maybe<Tables_Set_Input>;
+  pk_columns: Tables_Pk_Columns_Input;
+};
+
+
+/** mutation root */
 export type Mutation_RootUpdate_ValuesArgs = {
   _inc?: Maybe<Values_Inc_Input>;
   _set?: Maybe<Values_Set_Input>;
@@ -521,6 +605,12 @@ export type Query_Root = {
   rows_aggregate: Rows_Aggregate;
   /** fetch data from the table: "rows" using primary key columns */
   rows_by_pk?: Maybe<Rows>;
+  /** fetch data from the table: "tables" */
+  tables: Array<Tables>;
+  /** fetch aggregated fields from the table: "tables" */
+  tables_aggregate: Tables_Aggregate;
+  /** fetch data from the table: "tables" using primary key columns */
+  tables_by_pk?: Maybe<Tables>;
   /** fetch data from the table: "values" */
   values: Array<Values>;
   /** fetch aggregated fields from the table: "values" */
@@ -583,6 +673,32 @@ export type Query_RootRows_By_PkArgs = {
 
 
 /** query root */
+export type Query_RootTablesArgs = {
+  distinct_on?: Maybe<Array<Tables_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Tables_Order_By>>;
+  where?: Maybe<Tables_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootTables_AggregateArgs = {
+  distinct_on?: Maybe<Array<Tables_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Tables_Order_By>>;
+  where?: Maybe<Tables_Bool_Exp>;
+};
+
+
+/** query root */
+export type Query_RootTables_By_PkArgs = {
+  table_id: Scalars['Int'];
+};
+
+
+/** query root */
 export type Query_RootValuesArgs = {
   distinct_on?: Maybe<Array<Values_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -611,6 +727,7 @@ export type Query_RootValues_By_PkArgs = {
 export type Rows = {
   __typename?: 'rows';
   row_id: Scalars['Int'];
+  table_id?: Maybe<Scalars['Int']>;
   /** An array relationship */
   values: Array<Values>;
   /** An aggregated array relationship */
@@ -692,11 +809,13 @@ export type Rows_Arr_Rel_Insert_Input = {
 export type Rows_Avg_Fields = {
   __typename?: 'rows_avg_fields';
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by avg() on columns of table "rows" */
 export type Rows_Avg_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "rows". All fields are combined with a logical 'AND'. */
@@ -705,6 +824,7 @@ export type Rows_Bool_Exp = {
   _not?: Maybe<Rows_Bool_Exp>;
   _or?: Maybe<Array<Maybe<Rows_Bool_Exp>>>;
   row_id?: Maybe<Int_Comparison_Exp>;
+  table_id?: Maybe<Int_Comparison_Exp>;
   values?: Maybe<Values_Bool_Exp>;
 };
 
@@ -717,11 +837,13 @@ export enum Rows_Constraint {
 /** input type for incrementing integer column in table "rows" */
 export type Rows_Inc_Input = {
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
 };
 
 /** input type for inserting data into table "rows" */
 export type Rows_Insert_Input = {
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
   values?: Maybe<Values_Arr_Rel_Insert_Input>;
 };
 
@@ -729,22 +851,26 @@ export type Rows_Insert_Input = {
 export type Rows_Max_Fields = {
   __typename?: 'rows_max_fields';
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by max() on columns of table "rows" */
 export type Rows_Max_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate min on columns */
 export type Rows_Min_Fields = {
   __typename?: 'rows_min_fields';
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by min() on columns of table "rows" */
 export type Rows_Min_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** response of any mutation on the table "rows" */
@@ -772,6 +898,7 @@ export type Rows_On_Conflict = {
 /** ordering options when selecting data from "rows" */
 export type Rows_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   values_aggregate?: Maybe<Values_Aggregate_Order_By>;
 };
 
@@ -783,95 +910,114 @@ export type Rows_Pk_Columns_Input = {
 /** select columns of table "rows" */
 export enum Rows_Select_Column {
   /** column name */
-  RowId = 'row_id'
+  RowId = 'row_id',
+  /** column name */
+  TableId = 'table_id'
 }
 
 /** input type for updating data in table "rows" */
 export type Rows_Set_Input = {
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
 };
 
 /** aggregate stddev on columns */
 export type Rows_Stddev_Fields = {
   __typename?: 'rows_stddev_fields';
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev() on columns of table "rows" */
 export type Rows_Stddev_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_pop on columns */
 export type Rows_Stddev_Pop_Fields = {
   __typename?: 'rows_stddev_pop_fields';
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_pop() on columns of table "rows" */
 export type Rows_Stddev_Pop_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
 export type Rows_Stddev_Samp_Fields = {
   __typename?: 'rows_stddev_samp_fields';
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by stddev_samp() on columns of table "rows" */
 export type Rows_Stddev_Samp_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate sum on columns */
 export type Rows_Sum_Fields = {
   __typename?: 'rows_sum_fields';
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
 };
 
 /** order by sum() on columns of table "rows" */
 export type Rows_Sum_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** update columns of table "rows" */
 export enum Rows_Update_Column {
   /** column name */
-  RowId = 'row_id'
+  RowId = 'row_id',
+  /** column name */
+  TableId = 'table_id'
 }
 
 /** aggregate var_pop on columns */
 export type Rows_Var_Pop_Fields = {
   __typename?: 'rows_var_pop_fields';
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_pop() on columns of table "rows" */
 export type Rows_Var_Pop_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate var_samp on columns */
 export type Rows_Var_Samp_Fields = {
   __typename?: 'rows_var_samp_fields';
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by var_samp() on columns of table "rows" */
 export type Rows_Var_Samp_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** aggregate variance on columns */
 export type Rows_Variance_Fields = {
   __typename?: 'rows_variance_fields';
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
 };
 
 /** order by variance() on columns of table "rows" */
 export type Rows_Variance_Order_By = {
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
 };
 
 /** subscription root */
@@ -889,6 +1035,12 @@ export type Subscription_Root = {
   rows_aggregate: Rows_Aggregate;
   /** fetch data from the table: "rows" using primary key columns */
   rows_by_pk?: Maybe<Rows>;
+  /** fetch data from the table: "tables" */
+  tables: Array<Tables>;
+  /** fetch aggregated fields from the table: "tables" */
+  tables_aggregate: Tables_Aggregate;
+  /** fetch data from the table: "tables" using primary key columns */
+  tables_by_pk?: Maybe<Tables>;
   /** fetch data from the table: "values" */
   values: Array<Values>;
   /** fetch aggregated fields from the table: "values" */
@@ -951,6 +1103,32 @@ export type Subscription_RootRows_By_PkArgs = {
 
 
 /** subscription root */
+export type Subscription_RootTablesArgs = {
+  distinct_on?: Maybe<Array<Tables_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Tables_Order_By>>;
+  where?: Maybe<Tables_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootTables_AggregateArgs = {
+  distinct_on?: Maybe<Array<Tables_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Tables_Order_By>>;
+  where?: Maybe<Tables_Bool_Exp>;
+};
+
+
+/** subscription root */
+export type Subscription_RootTables_By_PkArgs = {
+  table_id: Scalars['Int'];
+};
+
+
+/** subscription root */
 export type Subscription_RootValuesArgs = {
   distinct_on?: Maybe<Array<Values_Select_Column>>;
   limit?: Maybe<Scalars['Int']>;
@@ -975,6 +1153,246 @@ export type Subscription_RootValues_By_PkArgs = {
   value_id: Scalars['Int'];
 };
 
+/** columns and relationships of "tables" */
+export type Tables = {
+  __typename?: 'tables';
+  table_id: Scalars['Int'];
+};
+
+/** aggregated selection of "tables" */
+export type Tables_Aggregate = {
+  __typename?: 'tables_aggregate';
+  aggregate?: Maybe<Tables_Aggregate_Fields>;
+  nodes: Array<Tables>;
+};
+
+/** aggregate fields of "tables" */
+export type Tables_Aggregate_Fields = {
+  __typename?: 'tables_aggregate_fields';
+  avg?: Maybe<Tables_Avg_Fields>;
+  count?: Maybe<Scalars['Int']>;
+  max?: Maybe<Tables_Max_Fields>;
+  min?: Maybe<Tables_Min_Fields>;
+  stddev?: Maybe<Tables_Stddev_Fields>;
+  stddev_pop?: Maybe<Tables_Stddev_Pop_Fields>;
+  stddev_samp?: Maybe<Tables_Stddev_Samp_Fields>;
+  sum?: Maybe<Tables_Sum_Fields>;
+  var_pop?: Maybe<Tables_Var_Pop_Fields>;
+  var_samp?: Maybe<Tables_Var_Samp_Fields>;
+  variance?: Maybe<Tables_Variance_Fields>;
+};
+
+
+/** aggregate fields of "tables" */
+export type Tables_Aggregate_FieldsCountArgs = {
+  columns?: Maybe<Array<Tables_Select_Column>>;
+  distinct?: Maybe<Scalars['Boolean']>;
+};
+
+/** order by aggregate values of table "tables" */
+export type Tables_Aggregate_Order_By = {
+  avg?: Maybe<Tables_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Tables_Max_Order_By>;
+  min?: Maybe<Tables_Min_Order_By>;
+  stddev?: Maybe<Tables_Stddev_Order_By>;
+  stddev_pop?: Maybe<Tables_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Tables_Stddev_Samp_Order_By>;
+  sum?: Maybe<Tables_Sum_Order_By>;
+  var_pop?: Maybe<Tables_Var_Pop_Order_By>;
+  var_samp?: Maybe<Tables_Var_Samp_Order_By>;
+  variance?: Maybe<Tables_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "tables" */
+export type Tables_Arr_Rel_Insert_Input = {
+  data: Array<Tables_Insert_Input>;
+  on_conflict?: Maybe<Tables_On_Conflict>;
+};
+
+/** aggregate avg on columns */
+export type Tables_Avg_Fields = {
+  __typename?: 'tables_avg_fields';
+  table_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "tables" */
+export type Tables_Avg_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
+/** Boolean expression to filter rows from the table "tables". All fields are combined with a logical 'AND'. */
+export type Tables_Bool_Exp = {
+  _and?: Maybe<Array<Maybe<Tables_Bool_Exp>>>;
+  _not?: Maybe<Tables_Bool_Exp>;
+  _or?: Maybe<Array<Maybe<Tables_Bool_Exp>>>;
+  table_id?: Maybe<Int_Comparison_Exp>;
+};
+
+/** unique or primary key constraints on table "tables" */
+export enum Tables_Constraint {
+  /** unique or primary key constraint */
+  TablesPkey = 'tables_pkey'
+}
+
+/** input type for incrementing integer column in table "tables" */
+export type Tables_Inc_Input = {
+  table_id?: Maybe<Scalars['Int']>;
+};
+
+/** input type for inserting data into table "tables" */
+export type Tables_Insert_Input = {
+  table_id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate max on columns */
+export type Tables_Max_Fields = {
+  __typename?: 'tables_max_fields';
+  table_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by max() on columns of table "tables" */
+export type Tables_Max_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
+/** aggregate min on columns */
+export type Tables_Min_Fields = {
+  __typename?: 'tables_min_fields';
+  table_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by min() on columns of table "tables" */
+export type Tables_Min_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
+/** response of any mutation on the table "tables" */
+export type Tables_Mutation_Response = {
+  __typename?: 'tables_mutation_response';
+  /** number of affected rows by the mutation */
+  affected_rows: Scalars['Int'];
+  /** data of the affected rows by the mutation */
+  returning: Array<Tables>;
+};
+
+/** input type for inserting object relation for remote table "tables" */
+export type Tables_Obj_Rel_Insert_Input = {
+  data: Tables_Insert_Input;
+  on_conflict?: Maybe<Tables_On_Conflict>;
+};
+
+/** on conflict condition type for table "tables" */
+export type Tables_On_Conflict = {
+  constraint: Tables_Constraint;
+  update_columns: Array<Tables_Update_Column>;
+  where?: Maybe<Tables_Bool_Exp>;
+};
+
+/** ordering options when selecting data from "tables" */
+export type Tables_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
+/** primary key columns input for table: "tables" */
+export type Tables_Pk_Columns_Input = {
+  table_id: Scalars['Int'];
+};
+
+/** select columns of table "tables" */
+export enum Tables_Select_Column {
+  /** column name */
+  TableId = 'table_id'
+}
+
+/** input type for updating data in table "tables" */
+export type Tables_Set_Input = {
+  table_id?: Maybe<Scalars['Int']>;
+};
+
+/** aggregate stddev on columns */
+export type Tables_Stddev_Fields = {
+  __typename?: 'tables_stddev_fields';
+  table_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev() on columns of table "tables" */
+export type Tables_Stddev_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_pop on columns */
+export type Tables_Stddev_Pop_Fields = {
+  __typename?: 'tables_stddev_pop_fields';
+  table_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "tables" */
+export type Tables_Stddev_Pop_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
+/** aggregate stddev_samp on columns */
+export type Tables_Stddev_Samp_Fields = {
+  __typename?: 'tables_stddev_samp_fields';
+  table_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_samp() on columns of table "tables" */
+export type Tables_Stddev_Samp_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
+/** aggregate sum on columns */
+export type Tables_Sum_Fields = {
+  __typename?: 'tables_sum_fields';
+  table_id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "tables" */
+export type Tables_Sum_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
+/** update columns of table "tables" */
+export enum Tables_Update_Column {
+  /** column name */
+  TableId = 'table_id'
+}
+
+/** aggregate var_pop on columns */
+export type Tables_Var_Pop_Fields = {
+  __typename?: 'tables_var_pop_fields';
+  table_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_pop() on columns of table "tables" */
+export type Tables_Var_Pop_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
+/** aggregate var_samp on columns */
+export type Tables_Var_Samp_Fields = {
+  __typename?: 'tables_var_samp_fields';
+  table_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by var_samp() on columns of table "tables" */
+export type Tables_Var_Samp_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
+/** aggregate variance on columns */
+export type Tables_Variance_Fields = {
+  __typename?: 'tables_variance_fields';
+  table_id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "tables" */
+export type Tables_Variance_Order_By = {
+  table_id?: Maybe<Order_By>;
+};
+
 /** columns and relationships of "values" */
 export type Values = {
   __typename?: 'values';
@@ -984,6 +1402,7 @@ export type Values = {
   /** An object relationship */
   row: Rows;
   row_id: Scalars['Int'];
+  table_id?: Maybe<Scalars['Int']>;
   value: Scalars['String'];
   value_id: Scalars['Int'];
 };
@@ -1044,6 +1463,7 @@ export type Values_Avg_Fields = {
   __typename?: 'values_avg_fields';
   header_id?: Maybe<Scalars['Float']>;
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
   value_id?: Maybe<Scalars['Float']>;
 };
 
@@ -1051,6 +1471,7 @@ export type Values_Avg_Fields = {
 export type Values_Avg_Order_By = {
   header_id?: Maybe<Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
 
@@ -1063,6 +1484,7 @@ export type Values_Bool_Exp = {
   header_id?: Maybe<Int_Comparison_Exp>;
   row?: Maybe<Rows_Bool_Exp>;
   row_id?: Maybe<Int_Comparison_Exp>;
+  table_id?: Maybe<Int_Comparison_Exp>;
   value?: Maybe<String_Comparison_Exp>;
   value_id?: Maybe<Int_Comparison_Exp>;
 };
@@ -1077,6 +1499,7 @@ export enum Values_Constraint {
 export type Values_Inc_Input = {
   header_id?: Maybe<Scalars['Int']>;
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
   value_id?: Maybe<Scalars['Int']>;
 };
 
@@ -1086,6 +1509,7 @@ export type Values_Insert_Input = {
   header_id?: Maybe<Scalars['Int']>;
   row?: Maybe<Rows_Obj_Rel_Insert_Input>;
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
   value?: Maybe<Scalars['String']>;
   value_id?: Maybe<Scalars['Int']>;
 };
@@ -1095,6 +1519,7 @@ export type Values_Max_Fields = {
   __typename?: 'values_max_fields';
   header_id?: Maybe<Scalars['Int']>;
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
   value?: Maybe<Scalars['String']>;
   value_id?: Maybe<Scalars['Int']>;
 };
@@ -1103,6 +1528,7 @@ export type Values_Max_Fields = {
 export type Values_Max_Order_By = {
   header_id?: Maybe<Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
@@ -1112,6 +1538,7 @@ export type Values_Min_Fields = {
   __typename?: 'values_min_fields';
   header_id?: Maybe<Scalars['Int']>;
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
   value?: Maybe<Scalars['String']>;
   value_id?: Maybe<Scalars['Int']>;
 };
@@ -1120,6 +1547,7 @@ export type Values_Min_Fields = {
 export type Values_Min_Order_By = {
   header_id?: Maybe<Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
@@ -1152,6 +1580,7 @@ export type Values_Order_By = {
   header_id?: Maybe<Order_By>;
   row?: Maybe<Rows_Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
@@ -1168,6 +1597,8 @@ export enum Values_Select_Column {
   /** column name */
   RowId = 'row_id',
   /** column name */
+  TableId = 'table_id',
+  /** column name */
   Value = 'value',
   /** column name */
   ValueId = 'value_id'
@@ -1177,6 +1608,7 @@ export enum Values_Select_Column {
 export type Values_Set_Input = {
   header_id?: Maybe<Scalars['Int']>;
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
   value?: Maybe<Scalars['String']>;
   value_id?: Maybe<Scalars['Int']>;
 };
@@ -1186,6 +1618,7 @@ export type Values_Stddev_Fields = {
   __typename?: 'values_stddev_fields';
   header_id?: Maybe<Scalars['Float']>;
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
   value_id?: Maybe<Scalars['Float']>;
 };
 
@@ -1193,6 +1626,7 @@ export type Values_Stddev_Fields = {
 export type Values_Stddev_Order_By = {
   header_id?: Maybe<Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
 
@@ -1201,6 +1635,7 @@ export type Values_Stddev_Pop_Fields = {
   __typename?: 'values_stddev_pop_fields';
   header_id?: Maybe<Scalars['Float']>;
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
   value_id?: Maybe<Scalars['Float']>;
 };
 
@@ -1208,6 +1643,7 @@ export type Values_Stddev_Pop_Fields = {
 export type Values_Stddev_Pop_Order_By = {
   header_id?: Maybe<Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
 
@@ -1216,6 +1652,7 @@ export type Values_Stddev_Samp_Fields = {
   __typename?: 'values_stddev_samp_fields';
   header_id?: Maybe<Scalars['Float']>;
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
   value_id?: Maybe<Scalars['Float']>;
 };
 
@@ -1223,6 +1660,7 @@ export type Values_Stddev_Samp_Fields = {
 export type Values_Stddev_Samp_Order_By = {
   header_id?: Maybe<Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
 
@@ -1231,6 +1669,7 @@ export type Values_Sum_Fields = {
   __typename?: 'values_sum_fields';
   header_id?: Maybe<Scalars['Int']>;
   row_id?: Maybe<Scalars['Int']>;
+  table_id?: Maybe<Scalars['Int']>;
   value_id?: Maybe<Scalars['Int']>;
 };
 
@@ -1238,6 +1677,7 @@ export type Values_Sum_Fields = {
 export type Values_Sum_Order_By = {
   header_id?: Maybe<Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
 
@@ -1247,6 +1687,8 @@ export enum Values_Update_Column {
   HeaderId = 'header_id',
   /** column name */
   RowId = 'row_id',
+  /** column name */
+  TableId = 'table_id',
   /** column name */
   Value = 'value',
   /** column name */
@@ -1258,6 +1700,7 @@ export type Values_Var_Pop_Fields = {
   __typename?: 'values_var_pop_fields';
   header_id?: Maybe<Scalars['Float']>;
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
   value_id?: Maybe<Scalars['Float']>;
 };
 
@@ -1265,6 +1708,7 @@ export type Values_Var_Pop_Fields = {
 export type Values_Var_Pop_Order_By = {
   header_id?: Maybe<Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
 
@@ -1273,6 +1717,7 @@ export type Values_Var_Samp_Fields = {
   __typename?: 'values_var_samp_fields';
   header_id?: Maybe<Scalars['Float']>;
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
   value_id?: Maybe<Scalars['Float']>;
 };
 
@@ -1280,6 +1725,7 @@ export type Values_Var_Samp_Fields = {
 export type Values_Var_Samp_Order_By = {
   header_id?: Maybe<Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
 
@@ -1288,6 +1734,7 @@ export type Values_Variance_Fields = {
   __typename?: 'values_variance_fields';
   header_id?: Maybe<Scalars['Float']>;
   row_id?: Maybe<Scalars['Float']>;
+  table_id?: Maybe<Scalars['Float']>;
   value_id?: Maybe<Scalars['Float']>;
 };
 
@@ -1295,6 +1742,7 @@ export type Values_Variance_Fields = {
 export type Values_Variance_Order_By = {
   header_id?: Maybe<Order_By>;
   row_id?: Maybe<Order_By>;
+  table_id?: Maybe<Order_By>;
   value_id?: Maybe<Order_By>;
 };
 
@@ -1372,7 +1820,9 @@ export type UpdateValueMutation = (
   )> }
 );
 
-export type TableDataQueryVariables = Exact<{ [key: string]: never; }>;
+export type TableDataQueryVariables = Exact<{
+  table_id: Scalars['Int'];
+}>;
 
 
 export type TableDataQuery = (
@@ -1386,6 +1836,17 @@ export type TableDataQuery = (
   )>, values: Array<(
     { __typename?: 'values' }
     & Pick<Values, 'header_id' | 'row_id' | 'value' | 'value_id'>
+  )> }
+);
+
+export type TablesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type TablesQuery = (
+  { __typename?: 'query_root' }
+  & { tables: Array<(
+    { __typename?: 'tables' }
+    & Pick<Tables, 'table_id'>
   )> }
 );
 
@@ -1568,15 +2029,15 @@ export type UpdateValueMutationHookResult = ReturnType<typeof useUpdateValueMuta
 export type UpdateValueMutationResult = Apollo.MutationResult<UpdateValueMutation>;
 export type UpdateValueMutationOptions = Apollo.BaseMutationOptions<UpdateValueMutation, UpdateValueMutationVariables>;
 export const TableDataDocument = gql`
-    query TableData {
-  headers {
+    query TableData($table_id: Int!) {
+  headers(where: {table_id: {_eq: $table_id}}) {
     header_id
     header_name
   }
-  rows {
+  rows(where: {table_id: {_eq: $table_id}}) {
     row_id
   }
-  values {
+  values(where: {table_id: {_eq: $table_id}}) {
     header_id
     row_id
     value
@@ -1597,6 +2058,7 @@ export const TableDataDocument = gql`
  * @example
  * const { data, loading, error } = useTableDataQuery({
  *   variables: {
+ *      table_id: // value for 'table_id'
  *   },
  * });
  */
@@ -1609,3 +2071,35 @@ export function useTableDataLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<
 export type TableDataQueryHookResult = ReturnType<typeof useTableDataQuery>;
 export type TableDataLazyQueryHookResult = ReturnType<typeof useTableDataLazyQuery>;
 export type TableDataQueryResult = Apollo.QueryResult<TableDataQuery, TableDataQueryVariables>;
+export const TablesDocument = gql`
+    query Tables {
+  tables {
+    table_id
+  }
+}
+    `;
+
+/**
+ * __useTablesQuery__
+ *
+ * To run a query within a React component, call `useTablesQuery` and pass it any options that fit your needs.
+ * When your component renders, `useTablesQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useTablesQuery({
+ *   variables: {
+ *   },
+ * });
+ */
+export function useTablesQuery(baseOptions?: Apollo.QueryHookOptions<TablesQuery, TablesQueryVariables>) {
+        return Apollo.useQuery<TablesQuery, TablesQueryVariables>(TablesDocument, baseOptions);
+      }
+export function useTablesLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<TablesQuery, TablesQueryVariables>) {
+          return Apollo.useLazyQuery<TablesQuery, TablesQueryVariables>(TablesDocument, baseOptions);
+        }
+export type TablesQueryHookResult = ReturnType<typeof useTablesQuery>;
+export type TablesLazyQueryHookResult = ReturnType<typeof useTablesLazyQuery>;
+export type TablesQueryResult = Apollo.QueryResult<TablesQuery, TablesQueryVariables>;

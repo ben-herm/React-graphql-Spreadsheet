@@ -1,15 +1,16 @@
-import { Flex, Box, Text } from "@chakra-ui/core";
+import { Flex, Box } from "@chakra-ui/core";
 import React from "react";
 import Spreadsheet from "react-spreadsheet";
 import Loader from "react-loader-spinner";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Error from "../errors/Error";
 import { TableDataQuery } from "../../generated/graphql";
+import { CellData } from "../../pages/[table]";
 interface SheetProps {
   data: TableDataQuery;
   loading: boolean;
   tableData: Array<Array<{}>>;
-  onChange: Function;
+  onChange:(e:CellData[][]) => void;
   error: { message: string };
 }
 
@@ -21,6 +22,7 @@ const Sheet: React.FC<SheetProps> = ({
   error,
 }) => {
   const renderTable = (): React.ReactElement<any> => {
+    let tdata = tableData;
     if (!data && loading && tableData.length == 0) {
       return (
         <Flex
@@ -40,7 +42,6 @@ const Sheet: React.FC<SheetProps> = ({
         </Flex>
       );
     }
-    let tdata = tableData;
     return (
       <Flex
         alignContent="center"

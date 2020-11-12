@@ -1,18 +1,19 @@
-import { ApolloQueryResult } from "@apollo/client";
+
 import { Button } from "@chakra-ui/core";
 import React from "react";
 import {
+  TableDataDocument,
   TableDataQuery,
   useInsertHeaderMutation,
   useInsertRowMutation,
 } from "../../generated/graphql";
 
 interface CustomBtnProps {
-  refetch: () => Promise<ApolloQueryResult<TableDataQuery>>;
+  // refetch: () => Promise<ApolloQueryResult<TableDataQuery>>;
   data: TableDataQuery;
 }
 
-const CustomBtn: React.FC<CustomBtnProps> = ({ refetch, data }) => {
+const CustomBtn: React.FC<CustomBtnProps> = ({ data }) => {
   const [
     insert_headers_one,
     { loading: insertHeaderFetch },
@@ -21,15 +22,15 @@ const CustomBtn: React.FC<CustomBtnProps> = ({ refetch, data }) => {
   const addRowOnClick = async () => {
     await insert_rows_one({
       variables: { row_id: data.rows.length + 1 },
+      refetchQueries: [{ query: TableDataDocument }],
     });
-    await refetch();
   };
 
   const addColumnOnClick = async () => {
     await insert_headers_one({
       variables: { header_id: data.headers.length + 1, header_name: "New" },
+      refetchQueries: [{ query: TableDataDocument }],
     });
-    await refetch();
   };
   return (
     <>

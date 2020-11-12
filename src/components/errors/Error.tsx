@@ -1,5 +1,4 @@
 import { Flex, Text } from "@chakra-ui/core";
-import { error } from "console";
 import React from "react";
 
 interface ErrorProps {

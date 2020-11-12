@@ -1,0 +1,6 @@
+query Tables{
+tables {
+  table_id
+}
+}
+
