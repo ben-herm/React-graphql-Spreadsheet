@@ -19,7 +19,6 @@ const Index = () => {
     }
   }, [data]);
   if (tableId) {
-    console.log("tableId", tableId);
     return (
       <Flex
         justifyContent="center"
